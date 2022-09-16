@@ -66,5 +66,42 @@ function exercise3 () {
 }
 
 function exercise4 () {
-    
+
+    var txtBoxValue = document.getElementById('txt1').value;
+    const nowhitespace = txtBoxValue.replace(/\s/g, '');
+    const letters = nowhitespace.split('');
+
+    let freq = [];
+
+    letters.forEach((letter) => {
+
+         if (freq[letter] == undefined) {
+            freq[letter] = 1;
+        } else {
+            freq[letter]++;
+        }  
+
+    });
+
+    for (const letterFrequence in freq) {
+        console.log(`${letterFrequence}: ${freq[letterFrequence]}`);
+    }
+
+}
+
+function exercise5() {
+   
+    var txtBoxValue = document.getElementById('txt1');
+    const translation = new Map([['a', '4'], ['e', '3'], ['r', '2'], ['i', '1']]);
+
+    text = txtBoxValue.value.toLowerCase();
+
+    for ( var i = 0; i < text.length; i++) {
+        if (translation.get(text[i])){
+            text = text.replace(text[i], translation.get(text[i]));
+        }
+    }
+
+    console.log(text);
+
 }
