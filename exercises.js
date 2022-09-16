@@ -37,16 +37,34 @@ function exercise3 () {
     var txtBoxValue = document.getElementById('txt1').value;
     const words = txtBoxValue.split(' ');
 
-    let obj = {};
+    let obj = [];
 
-        for(var i = 0; i < words.length; i++) {
-            if (obj[words[i]] == undefined) {
-                obj[words[i]] = 1;
+    words.forEach((word) => {
+
+         if (obj[word] == undefined) {
+                obj[word] = 1;
             } else {
-                obj[words[i]]++;
+                obj[word]++;
             }
-        }
+    });
 
-        Object.values(obj).forEach((freq, word) => console.log(`${words[word]} ${freq}`));
+    for (const freq in obj) {
+        console.log(`${freq}: ${obj[freq]}`);
+    }
 
+
+    const freqArray = Array.from(Object.keys(obj));
+
+    freqArray.sort((a, b) => obj[a] - obj[b] );
+
+    sortedFreqArray = freqArray.reverse();
+    
+    sortedFreqArray.forEach(word => {
+            console.log(`${word}`);
+    })
+
+}
+
+function exercise4 () {
+    
 }
